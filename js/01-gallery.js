@@ -55,16 +55,18 @@ galleryPrew.addEventListener("click", (event) => {
 	if (event.target.nodeName !== 'IMG') {
 		return;
   }
-	console.log(event.target);
+	// console.log(event.target);
 	const index = Number(event.target.dataset.num);
-	console.log(index);
+	// console.log(index); basicLightbox--visible
 	basicLightbox.create(`<img src = ${original[index]}>`).show();
+	
+	
 });
+console.log('event.target');
 
-// import * as basicLightbox from 'basiclightbox'
-
-// const instance = basicLightbox.create(`
-//     <img src="assets/images/image.png" width="800" height="600">
-// `)
-
-// instance.show()
+const modal = document.querySelector('.basicLightbox--visible');
+console.log(modal);
+// modal.addEventListener('Escape', esc);
+// 	function esc(){console.log('close();');
+		
+// 	}
