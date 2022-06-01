@@ -1,7 +1,8 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 const galleryPrew = document.querySelector('.gallery');
-// console.log('gallery;', galleryPrew);
+
+const modal = document.querySelector('.backdrop');
 const items = [];
 const preview = [];
 const original = [];
@@ -13,26 +14,33 @@ for (const item of galleryItems) {
 	description.push(item.description);
 }
 for(let i = 0; i < 9; i++){
-	
-const item = document.createElement('img');
-item.classList.add('gallery__image'); 
-item.src = preview[i];
-item.alt = description[i];
-
-items.push(item);
-// console.log(item); 
-
+const itemDiv = document.createElement('div');
+itemDiv.classList.add('gallery__item');
+const itemA = document.createElement('a');
+itemA.classList.add('gallery__link');
+itemA.href = original[i];	
+const itemImg = document.createElement('img');
+itemImg.classList.add('gallery__image'); 
+itemImg.src = preview[i];
+// itemImg.dataset(source) = original[i];
+itemImg.alt = description[i];
+itemImg.dataset.num = `${i}`
+itemA.appendChild(itemImg);
+itemDiv.appendChild(itemA);
+items.push(itemDiv);
 };
 galleryPrew.append(...items);
 
-
 galleryPrew.addEventListener("click", (event) => {
-	console.log('event.target1', event.target.nodeName.scr);//.nodeName
 	if (event.target.nodeName !== 'IMG') {
-		console.log('event.target2', event.target);
-		console.log('event.i', document.querySelector(original));
-    return;
+		instance.close();
+		return;
   }
-	// const index = event.target.
-  // console.log("original:",original);
+	const imageInstance = basicLightbox.create(document.querySelector('.gallery__image'))
+	// refs.modal.classList.toggle("is-hidden");
+
 });
+windows.addEventListener("click", (event) => {
+
+	instance.close(document.querySelector('.gallery__link'));
+})
