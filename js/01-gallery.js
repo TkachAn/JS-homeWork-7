@@ -26,7 +26,7 @@ for(let i = 0; i < 9; i++){
 
 galleryPrew.append(...items);
 
-// galleryPrew.addEventListener("Escape", console.log('close'));
+let openSlaid = document.querySelector('.basicLightbox');
 galleryPrew.addEventListener("click", basLb);
 
 function basLb(event){
@@ -36,4 +36,18 @@ function basLb(event){
 	event.preventDefault();
 	const index = Number(event.target.dataset.num);
 	basicLightbox.create(`<img src = ${galleryItems[index].original}>`).show();
+	openSlaid = document.querySelector('.basicLightbox--visible');
+	console.log("window...",openSlaid);
+	galleryPrew.classList.toggle('open');
+	console.log("galleryPrew...",galleryPrew.classList);
 }
+
+	
+	// const openSlaid = document.querySelector('.gallery');
+	// console.log("window...",openSlaid);
+	document.addEventListener("keydown", (e) => {
+		if (e.code == "Escape" && openSlaid) {
+			openSlaid.close(() => console.log('lightbox not visible anymore'))
+			console.log("Closing window...");
+		}
+	});
