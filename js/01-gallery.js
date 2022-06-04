@@ -35,6 +35,8 @@ function basLb(event){
   }
 	event.preventDefault();
 	const index = Number(event.target.dataset.num);
+	const indxF = indexOf(event.target);
+	console.log("indxF.",indxF);
 	basicLightbox.create(`<img src = ${galleryItems[index].original}>`).show();
 	openSlaid = document.querySelector('.basicLightbox--visible');
 	console.log("window...",openSlaid);
