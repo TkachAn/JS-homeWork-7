@@ -11,7 +11,7 @@ function createElForGallery(){
 
 galleryRef.innerHTML = makeup;
 }
-createElForGallery(galleryItems);
+createElForGallery();//galleryItems
 
 function simLb(event){
 	console.log(event.target);
@@ -26,6 +26,6 @@ function simLb(event){
 galleryRef.addEventListener("click", simLb);
 let lightbox = new SimpleLightbox('.gallery a', {
 	captionsData: 'alt',
-	captionDelay: 250,
+	captionDelay: 200,
 });
 

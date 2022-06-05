@@ -41,12 +41,12 @@ function basLb(event){
 
 	modal = basicLightbox.create(`<img src = ${largeImg}>`,
 	{
-    onShow: () => window.addEventListener('keydown', closeModalOnEscKey),
-		onClose: () => window.removeEventListener('keydown', closeModalOnEscKey),
+    onShow: () => window.addEventListener('keydown', closeModalEsc),
+		onClose: () => window.removeEventListener('keydown', closeModalEsc),
 });
 modal.show(() => console.log('lightbox now visible'));//
 }
-function closeModalOnEscKey(event){
+function closeModalEsc(event){
 	if(event.code === "Escape"){
 		modal.close(() => console.log('lightbox not visible anymore'));
 	}
